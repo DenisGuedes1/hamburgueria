@@ -1,5 +1,5 @@
 import "./style.css";
-function Header() {
+function Header({ setFilteredProducts, recipeValue, Setpesquisa }) {
   return (
     <header className="Cabecalho">
       <h1 className="title">
@@ -7,11 +7,19 @@ function Header() {
       </h1>
       <span className="inputEbtn">
         <input
+          // onKeyUp={(event) => recipeValue()}
+          onChange={(event) => Setpesquisa(event.target.value)}
           className="pesquisa"
           type="text"
           placeholder="oque procura...."
         />
-        <button className="btnpesquisar">Pesquisar</button>
+        <button
+          type="submit"
+          onClick={() => recipeValue()}
+          className="btnpesquisar"
+        >
+          Pesquisar
+        </button>
       </span>
     </header>
   );

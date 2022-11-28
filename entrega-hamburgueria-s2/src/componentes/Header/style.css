@@ -37,7 +37,7 @@
 .btnpesquisar {
   display: flex;
   align-items: center;
-  position: fixed;
+  position: absolute;
   height: 40px;
   width: 100px;
   border-radius: 9px;

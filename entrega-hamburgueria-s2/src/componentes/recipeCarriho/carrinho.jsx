@@ -1,6 +1,6 @@
 // import Carrinho from "../aside";
 import "./car.css";
-function RenderCarrinho({ currentSale, removeItem }) {
+function RenderCarrinho({ currentSale, removeItem, remove }) {
   return (
     <li className="ListaCarrinho">
       <img className="imgCarrinho" src={currentSale.img} alt="" />
@@ -9,7 +9,7 @@ function RenderCarrinho({ currentSale, removeItem }) {
         <p className="categoria">{currentSale.category} </p>
       </span>
       {/* <p className="Preco -all">R$ {Number(currentSale.price)}</p> */}
-      <button onClick={() => removeItem(currentSale)} className="remover ">
+      <button onClick={() => remove(currentSale.id)} className="remover ">
         Remover
       </button>
     </li>

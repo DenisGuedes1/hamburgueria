@@ -1,5 +1,5 @@
 import "./soma.css";
-function SomaTotal({ SomaCarrinho, setCartTotal }) {
+function SomaTotal({ SomaCarrinho, setCartTotal, removeItem, carrinho }) {
   function totalValue() {
     return SomaCarrinho.reduce(
       (base, currentValue) => base + currentValue.price,
@@ -15,7 +15,9 @@ function SomaTotal({ SomaCarrinho, setCartTotal }) {
 
         <p className="numberTotal">R${totalValue()}</p>
       </span>
-      <button className="removeTudo">Remover Tudo</button>
+      <button onClick={() => removeItem(SomaCarrinho)} className="removeTudo">
+        Remover Tudo
+      </button>
     </div>
   );
 }
