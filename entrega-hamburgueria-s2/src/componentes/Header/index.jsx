@@ -1,27 +1,28 @@
-import "./style.css";
+import {
+  StyledHeaders,
+  TitutloHearder,
+  TituloCorRosa,
+  SpanEbtn,
+  InputPesquisa,
+  BtnPesquisa,
+} from "./style";
 function Header({ setFilteredProducts, recipeValue, Setpesquisa }) {
   return (
-    <header className="Cabecalho">
-      <h1 className="title">
-        Burguer <span className="color_rosa">Kenzie</span>
-      </h1>
-      <span className="inputEbtn">
-        <input
-          // onKeyUp={(event) => recipeValue()}
+    <StyledHeaders>
+      <TitutloHearder>
+        Burguer <TituloCorRosa>Kenzie</TituloCorRosa>
+      </TitutloHearder>
+      <SpanEbtn>
+        <InputPesquisa
           onChange={(event) => Setpesquisa(event.target.value)}
-          className="pesquisa"
           type="text"
           placeholder="oque procura...."
         />
-        <button
-          type="submit"
-          onClick={() => recipeValue()}
-          className="btnpesquisar"
-        >
+        <BtnPesquisa type="submit" onClick={() => recipeValue()}>
           Pesquisar
-        </button>
-      </span>
-    </header>
+        </BtnPesquisa>
+      </SpanEbtn>
+    </StyledHeaders>
   );
 }
 

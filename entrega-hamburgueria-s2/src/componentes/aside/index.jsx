@@ -1,30 +1,37 @@
-import "./index.css";
 import RenderCarrinho from "../recipeCarriho/carrinho";
 import SomaValores from "../SomaValores";
+import {
+  StyleAside,
+  H1TituleCarrinho,
+  SubTituloCarrinho,
+  SubtituloOpaciti,
+  ConteinerCarrinho,
+} from "./style";
+
 function Carrinho({ carrinho, setCartTotal, removeItem, remove }) {
   return (
-    <aside className="carrinho">
-      <h1 className="titleCarrinho">Carrinho de compras</h1>
+    <StyleAside>
+      <H1TituleCarrinho>Carrinho de compras</H1TituleCarrinho>
       {carrinho.length === 0 ? (
         <>
-          <p className="tituloCar">Sua sacola está vazia</p>
-          <p className="tituloSecund"> Adicione itens</p>
+          <SubTituloCarrinho>Sua sacola está vazia</SubTituloCarrinho>
+          <SubtituloOpaciti> Adicione itens</SubtituloOpaciti>
         </>
       ) : (
-        carrinho.map((index) => (
-          <>
-            <ul className="conteinercarrinho">
+        <>
+          <ConteinerCarrinho>
+            {carrinho.map((index) => (
               <RenderCarrinho remove={remove} key={index} currentSale={index} />
-            </ul>
-          </>
-        ))
+            ))}
+            <SomaValores
+              removeItem={() => removeItem(carrinho)}
+              setCartTotal={setCartTotal}
+              SomaCarrinho={carrinho}
+            />
+          </ConteinerCarrinho>
+        </>
       )}
-      <SomaValores
-        removeItem={() => removeItem(carrinho)}
-        setCartTotal={setCartTotal}
-        SomaCarrinho={carrinho}
-      />
-    </aside>
+    </StyleAside>
   );
 }
 export default Carrinho;

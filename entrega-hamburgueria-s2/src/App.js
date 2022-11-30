@@ -7,10 +7,15 @@ import Aside from "./componentes/aside";
 import Header from "./componentes/Header";
 import RecipeCard from "./componentes/RecipeCard";
 function App() {
+  const localStorageLancheFavorito = localStorage.getItem("@LancheFavorito ");
   const [products, setProducts] = useState([]); //ja usei
-  const [filteredProducts, setFilteredProducts] = useState([...products]); //filtrar atraves do input
+  const [filteredProducts, setFilteredProducts] = useState([products]); //filtrar atraves do input
+  console.log(filteredProducts);
+  const [pesquisa, Setpesquisa] = useState([filteredProducts]);
 
-  const [pesquisa, Setpesquisa] = useState("");
+  const [lancheFavorito, setLancheFavorito] = useState(
+    localStorageLancheFavorito ? JSON.parse(localStorageLancheFavorito) : []
+  );
 
   const [carrinho, setCarrinho] = useState([]); //adiciona pro carrinho
   const [cartTotal, setCartTotal] = useState(0); //efetuar a soma
@@ -44,18 +49,22 @@ function App() {
     localStorage.setItem("@LancheFavorito", JSON.stringify(carrinho));
   }, [carrinho]);
   function addItem(recipe) {
-    setCarrinho([...carrinho, recipe]);
-    toast.success("gostosuras adicionada");
+    if (!lancheFavorito.some((lancheFavo) => lancheFavo.id === recipe.id)) {
+      setLancheFavorito([...lancheFavorito, recipe]);
+      toast.success("Gostosura adicionada ");
+    } else {
+      toast.error("verifique o carrinho");
+    }
   }
 
   function removeItem(recipeId) {
-    const newList = carrinho.filter((recipe) => recipe.id === recipeId);
-    setCarrinho(newList);
+    const newList = lancheFavorito.filter((recipe) => recipe.id === recipeId);
+    setLancheFavorito(newList);
     toast("carrinho esvaziado");
   }
   function remove(recipeId) {
-    const novalista = carrinho.filter((item) => item.id !== recipeId);
-    setCarrinho(novalista);
+    const novalista = lancheFavorito.filter((item) => item.id !== recipeId);
+    setLancheFavorito(novalista);
     toast.info("gostosuras removidas");
   }
 
@@ -71,7 +80,7 @@ function App() {
       <Header
         Setpesquisa={Setpesquisa}
         pesquisa={pesquisa}
-        productsData={filteredProducts}
+        productsData={products}
         recipeValue={recipeValue}
       />
       <div className="One">
@@ -79,13 +88,14 @@ function App() {
           addItem={addItem}
           setCarrinho={setCarrinho}
           products={filteredProducts}
+          filteredProducts={filteredProducts}
         />
         <Aside
           setCartTotal={setCartTotal}
-          carrinho={carrinho}
+          carrinho={lancheFavorito}
           products={products}
           remove={remove}
-          removeItem={() => removeItem(carrinho)}
+          removeItem={() => removeItem(lancheFavorito)}
         />
       </div>
       <ToastContainer
@@ -100,7 +110,7 @@ function App() {
         pauseOnHover
         theme="light"
       />
-      <ToastContainer />;
+      <ToastContainer />
     </div>
   );
 }

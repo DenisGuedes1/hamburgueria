@@ -1,9 +1,10 @@
 import RecipeUl from "./RecipeUl";
-import "./card.css";
-function RecipeCard({ products, setCarrinho, addItem, churrasco }) {
-  return products.map((base) => (
-    <div className="conteinerOne">
-      <ul className="conteinerProductsOne">
+
+import { DivConteiner, UlConteinerProdutos } from "./style";
+function RecipeCard({ filteredProducts, products, setCarrinho, addItem }) {
+  return filteredProducts.map((base) => (
+    <DivConteiner>
+      <UlConteinerProdutos>
         <RecipeUl
           addItem={addItem}
           Base={base}
@@ -11,8 +12,8 @@ function RecipeCard({ products, setCarrinho, addItem, churrasco }) {
           setCarrinho={setCarrinho}
           productsData={base}
         />
-      </ul>
-    </div>
+      </UlConteinerProdutos>
+    </DivConteiner>
   ));
 }
 export default RecipeCard;

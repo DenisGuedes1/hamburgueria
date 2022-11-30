@@ -1,4 +1,10 @@
-import "./soma.css";
+import {
+  SpanRodape,
+  VlorTotalP,
+  TotalNumero,
+  BtnRemoveTudo,
+  ConteinerSomaDiv,
+} from "./styleSoma";
 function SomaTotal({ SomaCarrinho, setCartTotal, removeItem, carrinho }) {
   function totalValue() {
     return SomaCarrinho.reduce(
@@ -9,16 +15,19 @@ function SomaTotal({ SomaCarrinho, setCartTotal, removeItem, carrinho }) {
   }
 
   return (
-    <div className="conteinerSoma">
-      <span className="spanRodape">
-        <p className="valueTotal">Total</p>
+    <ConteinerSomaDiv>
+      <SpanRodape>
+        <VlorTotalP>Total</VlorTotalP>
 
-        <p className="numberTotal">R${totalValue()}</p>
-      </span>
-      <button onClick={() => removeItem(SomaCarrinho)} className="removeTudo">
+        <TotalNumero>R${totalValue()}</TotalNumero>
+      </SpanRodape>
+      <BtnRemoveTudo
+        onClick={() => removeItem(SomaCarrinho)}
+        className="removeTudo"
+      >
         Remover Tudo
-      </button>
-    </div>
+      </BtnRemoveTudo>
+    </ConteinerSomaDiv>
   );
 }
 export default SomaTotal;

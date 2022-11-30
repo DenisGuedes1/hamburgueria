@@ -1,22 +1,28 @@
-import "./recipeul.css";
+import {
+  ImgStyle,
+  ConteinerProducts,
+  NomeProduto,
+  CategoriaProduto,
+  Precoproduto,BtnAdicionar
+} from "./styleRecipe";
 
 function RecipeUl({ productsData, setCarrinho, carrinho, Base, addItem }) {
   // const [cliquei, setCliquei] = useState([]);
 
   return (
-    <li className="contentProducts">
-      <img src={productsData.img} alt="" />
-      <p className="Nome -all">{productsData.name} </p>
-      <p className="categoria">{productsData.category} </p>
-      <p className="Preco -all">R$ {Number(productsData.price)}</p>
-      <button
+    <ConteinerProducts>
+      <ImgStyle src={productsData.img} alt="" />
+      <NomeProduto>{productsData.name} </NomeProduto>
+      <CategoriaProduto>{productsData.category} </CategoriaProduto>
+      <Precoproduto>R$ {Number(productsData.price)}</Precoproduto>
+      <BtnAdicionar
         type="submit"
         onClick={() => addItem(productsData)}
         className="Adicionar "
       >
         Adicionar
-      </button>
-    </li>
+      </BtnAdicionar>
+    </ConteinerProducts>
   );
 }
 export default RecipeUl;

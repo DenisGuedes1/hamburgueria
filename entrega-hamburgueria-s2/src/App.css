@@ -39,6 +39,6 @@
 .One {
   display: flex;
   flex-wrap: wrap;
-  width: 77rem;
+  width: 61rem;
   gap: 3rem;
 }

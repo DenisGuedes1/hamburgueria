@@ -1,18 +1,20 @@
 // import Carrinho from "../aside";
-import "./car.css";
+import {ListaCarrinho,ImgCarrinho,NomeCarrinho,CatergoriaCarrinho,SpanTextoCarrinho,BtnRemove} from './styleCarrinho'
+
+
 function RenderCarrinho({ currentSale, removeItem, remove }) {
   return (
-    <li className="ListaCarrinho">
-      <img className="imgCarrinho" src={currentSale.img} alt="" />
-      <span className="spanTextoCarrinho">
-        <p className="NomeCarrinho">{currentSale.name} </p>
-        <p className="categoria">{currentSale.category} </p>
-      </span>
+    < ListaCarrinho>
+      <ImgCarrinho src={currentSale.img} alt="" />
+      <SpanTextoCarrinho>
+        <NomeCarrinho>{currentSale.name} </NomeCarrinho>
+        <CatergoriaCarrinho>{currentSale.category} </CatergoriaCarrinho>
+      </SpanTextoCarrinho>
       {/* <p className="Preco -all">R$ {Number(currentSale.price)}</p> */}
-      <button onClick={() => remove(currentSale.id)} className="remover ">
+      <BtnRemove onClick={() => remove(currentSale.id)} className="remover ">
         Remover
-      </button>
-    </li>
+      </BtnRemove>
+    </ListaCarrinho>
   );
 }
-export default RenderCarrinho;
+export default RenderCarrinho
