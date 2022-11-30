@@ -71,7 +71,11 @@ function App() {
   useEffect(() => {
     fetch("https://hamburgueria-kenzie-json-serve.herokuapp.com/products")
       .then((response) => response.json())
-      .then((response) => setProducts(response))
+      .then((response) => {
+        setFilteredProducts(response);
+        setProducts(response);
+      })
+
       .catch((err) => console.log(err));
   }, []);
 
