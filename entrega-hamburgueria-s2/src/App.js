@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
-
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import "./App.css";
+
 import Aside from "./componentes/aside";
 import Header from "./componentes/Header";
 import RecipeCard from "./componentes/RecipeCard";
+import Api from "./services/api";
+import { DivPrincipal, StyledDivOne } from "./style";
 function App() {
   const localStorageLancheFavorito = localStorage.getItem("@LancheFavorito ");
   const [products, setProducts] = useState([]); //ja usei
-  const [filteredProducts, setFilteredProducts] = useState([products]); //filtrar atraves do input
-  console.log(filteredProducts);
+  const [filteredProducts, setFilteredProducts] = useState([]); //filtrar atraves do input
+
   const [pesquisa, Setpesquisa] = useState([filteredProducts]);
 
   const [lancheFavorito, setLancheFavorito] = useState(
@@ -69,25 +70,24 @@ function App() {
   }
 
   useEffect(() => {
-    fetch("https://hamburgueria-kenzie-json-serve.herokuapp.com/products")
-      .then((response) => response.json())
+    Api.get("/products")
       .then((response) => {
-        setFilteredProducts(response);
-        setProducts(response);
+        setFilteredProducts(response.data);
+        setProducts(response.data);
+        console.log(response);
       })
-
       .catch((err) => console.log(err));
   }, []);
 
   return (
-    <div className="App">
+    <DivPrincipal>
       <Header
         Setpesquisa={Setpesquisa}
         pesquisa={pesquisa}
         productsData={products}
         recipeValue={recipeValue}
       />
-      <div className="One">
+      <StyledDivOne>
         <RecipeCard
           addItem={addItem}
           setCarrinho={setCarrinho}
@@ -101,7 +101,7 @@ function App() {
           remove={remove}
           removeItem={() => removeItem(lancheFavorito)}
         />
-      </div>
+      </StyledDivOne>
       <ToastContainer
         position="bottom-left"
         autoClose={2000}
@@ -115,7 +115,7 @@ function App() {
         theme="light"
       />
       <ToastContainer />
-    </div>
+    </DivPrincipal>
   );
 }
 

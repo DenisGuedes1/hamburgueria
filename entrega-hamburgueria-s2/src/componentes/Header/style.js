@@ -14,17 +14,19 @@ export const StyledHeaders = styled.header`
   display: flex;
   align-items: center;
   padding: 1rem;
-  gap: 48.5rem;
-  width: 97vw;
+  gap: 60%;
+  width: 100vw;
   height: 5rem;
   background-color: #f5f5f5;
 `;
 export const TitutloHearder = styled.h1`
   color: #333333;
+  width: 15%;
 `;
 export const TituloCorRosa = styled.span`
   color: #eb5757;
   font-size: 15px;
+  width: 21%;
 `;
 export const SpanEbtn = styled.span`
   display: flex;
@@ -44,7 +46,7 @@ export const BtnPesquisa = styled.button`
   width: 100px;
   border-radius: 9px;
   padding: 0px 20px 0px 20px;
-  top: 36px;
+  top: 44px;
   cursor: pointer;
   border: none;
   font-family: "Inter", sans serif;

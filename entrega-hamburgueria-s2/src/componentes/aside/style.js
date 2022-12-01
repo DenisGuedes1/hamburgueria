@@ -11,12 +11,17 @@ import styled from "styled-components";
 //   --colorText-Carrinho: rgba(51, 51, 51, 1);
 // }
 export const StyleAside = styled.aside`
-  width: 20%;
+  width: 25%;
   height: 45%;
-  margin: 1rem 0rem 0rem 64rem;
+  margin: 1% 0% 33% 73%;
   background-color: #f5f5f5;
   overflow-x: scroll;
   position: absolute;
+  /* display: block; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
 `;
 export const H1TituleCarrinho = styled.h1`
   background-color: rgba(39, 174, 96, 1);
