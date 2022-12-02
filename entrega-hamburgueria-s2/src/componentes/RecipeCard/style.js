@@ -20,4 +20,8 @@ export const UlConteinerProdutos = styled.ul`
   list-style: none;
   display: flex;
   flex-wrap: wrap;
+  gap: 6rem;
+  height: 27rem;
+  align-items: center;
+  justify-content: center;
 `;
