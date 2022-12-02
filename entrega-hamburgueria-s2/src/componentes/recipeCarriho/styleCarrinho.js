@@ -13,11 +13,11 @@ import styled from "styled-components";
 
 export const ListaCarrinho = styled.li`
   display: flex;
-  width: 17rem;
+  width: 20rem;
   height: 7rem;
 `;
 export const ImgCarrinho = styled.img`
-  width: 4rem;
+  width: 6rem;
   height: 4rem;
   object-fit: cover;
   background-color: #bdbdbd;

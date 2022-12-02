@@ -15,6 +15,7 @@ export const ConteinerSomaDiv = styled.div``;
 export const SpanRodape = styled.span`
   display: flex;
   gap: 11rem;
+  margin-left: 3rem;
 `;
 export const VlorTotalP = styled.p`
  font-family: "Inter", sans serif;
@@ -42,4 +43,5 @@ export const BtnRemoveTudo = styled.button`
   line-height: 19px;
   color: #828282;
   cursor: pointer;
+  margin-left: 3rem;
 `;
