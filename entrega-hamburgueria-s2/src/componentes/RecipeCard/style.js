@@ -18,4 +18,6 @@ export const DivConteiner = styled.div`
 `;
 export const UlConteinerProdutos = styled.ul`
   list-style: none;
+  display: flex;
+  flex-wrap: wrap;
 `;

@@ -10,9 +10,9 @@ import { DivPrincipal, StyledDivOne } from "./style";
 function App() {
   const localStorageLancheFavorito = localStorage.getItem("@LancheFavorito ");
   const [products, setProducts] = useState([]); //ja usei
-  const [filteredProducts, setFilteredProducts] = useState([]); //filtrar atraves do input
+  // const [filteredProducts, setFilteredProducts] = useState([]); //filtrar atraves do input
 
-  const [pesquisa, Setpesquisa] = useState([filteredProducts]);
+  const [pesquisa, Setpesquisa] = useState([]);
 
   const [lancheFavorito, setLancheFavorito] = useState(
     localStorageLancheFavorito ? JSON.parse(localStorageLancheFavorito) : []
@@ -21,34 +21,25 @@ function App() {
   const [carrinho, setCarrinho] = useState([]); //adiciona pro carrinho
   const [cartTotal, setCartTotal] = useState(0); //efetuar a soma
   console.log(cartTotal);
-
-  useEffect(() => {
-    if (pesquisa.length) {
-      setFilteredProducts(
-        products.filter(
-          (products) =>
-            products.name.toLowerCase().includes(pesquisa) ||
-            products.category.toLowerCase().includes(pesquisa)
-        )
-      );
-    }
-  }, [pesquisa, products]);
+  const filteredProducts = products.filter((item) => {
+    return (
+      item.name.toLowerCase().includes(pesquisa) ||
+      item.category.toLowerCase().includes(pesquisa)
+    );
+  });
 
   function recipeValue() {
-    if (pesquisa.length) {
-      setFilteredProducts(
-        products.filter(
-          (products) =>
-            products.name.toLowerCase().includes(pesquisa) ||
-            products.category.toLowerCase().includes(pesquisa)
-        )
-      );
-    }
+    // if (pesquisa.length) {
+    //   setFilteredProducts(
+    //     products.filter(
+    //       (products) =>
+    //         products.name.toLowerCase().includes(pesquisa) ||
+    //         products.category.toLowerCase().includes(pesquisa)
+    //     )
+    //   );
+    // }
   }
 
-  useEffect(() => {
-    localStorage.setItem("@LancheFavorito", JSON.stringify(carrinho));
-  }, [carrinho]);
   function addItem(recipe) {
     if (!lancheFavorito.some((lancheFavo) => lancheFavo.id === recipe.id)) {
       setLancheFavorito([...lancheFavorito, recipe]);
@@ -72,12 +63,12 @@ function App() {
   useEffect(() => {
     Api.get("/products")
       .then((response) => {
-        setFilteredProducts(response.data);
         setProducts(response.data);
         console.log(response);
       })
       .catch((err) => console.log(err));
-  }, []);
+    localStorage.setItem("@LancheFavorito", JSON.stringify(carrinho));
+  }, [carrinho]);
 
   return (
     <DivPrincipal>
@@ -93,6 +84,7 @@ function App() {
           setCarrinho={setCarrinho}
           products={filteredProducts}
           filteredProducts={filteredProducts}
+          pesquisa={pesquisa}
         />
         <Aside
           setCartTotal={setCartTotal}
