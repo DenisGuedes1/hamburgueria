@@ -58,7 +58,7 @@ export const ConteinerCarrinho = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  margin: 2rem 0rem 0rem -8rem;
+  margin: 2rem -2rem 0rem -8rem;
   width: 17.5rem;
   height: 5rem;
 `;
