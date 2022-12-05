@@ -46,7 +46,8 @@ export const BtnPesquisa = styled.button`
   width: 100px;
   border-radius: 9px;
   padding: 0px 20px 0px 20px;
-  top: 44px;
+  top: 20px;
+
   cursor: pointer;
   border: none;
   font-family: "Inter", sans serif;

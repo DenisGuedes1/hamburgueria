@@ -3,10 +3,8 @@ import styled from "styled-components";
 export const StyledDivOne = styled.div`
   display: flex;
   flex-wrap: wrap;
-
-  width: 71%;
-
-  gap: 2rem;
+  width: 70%;
+  height: 45rem;
 `;
 export const DivPrincipal = styled.div`
   width: 100%;

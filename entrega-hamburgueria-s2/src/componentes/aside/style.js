@@ -1,19 +1,9 @@
 import styled from "styled-components";
-// @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap");
-// :root {
-//   --font-inter: "Inter", sans serif;
-//   --color-black: #333333;
-//   --color-rose: #eb5757;
-//   --color-bk: #f5f5f5;
-//   --color-white: #ffffff;
-//   --color-gren: rgba(39, 174, 96, 1);
-//   --color-grey: #828282;
-//   --colorText-Carrinho: rgba(51, 51, 51, 1);
-// }
+
 export const StyleAside = styled.aside`
   width: 25%;
   height: 45%;
-  margin: 1% 0% 33% 73%;
+  margin: 1% 0% 33% 70%;
   background-color: #f5f5f5;
   overflow-x: scroll;
   position: absolute;

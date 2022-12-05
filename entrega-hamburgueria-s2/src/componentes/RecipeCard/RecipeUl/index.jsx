@@ -3,7 +3,10 @@ import {
   ConteinerProducts,
   NomeProduto,
   CategoriaProduto,
-  Precoproduto,BtnAdicionar
+  Precoproduto,
+  BtnAdicionar,
+  SpanPrecoECategoriaEnome,
+  FigureImg,
 } from "./styleRecipe";
 
 function RecipeUl({ productsData, setCarrinho, carrinho, Base, addItem }) {
@@ -11,17 +14,21 @@ function RecipeUl({ productsData, setCarrinho, carrinho, Base, addItem }) {
 
   return (
     <ConteinerProducts>
-      <ImgStyle src={productsData.img} alt="" />
-      <NomeProduto>{productsData.name} </NomeProduto>
-      <CategoriaProduto>{productsData.category} </CategoriaProduto>
-      <Precoproduto>R$ {Number(productsData.price)}</Precoproduto>
-      <BtnAdicionar
-        type="submit"
-        onClick={() => addItem(productsData)}
-        className="Adicionar "
-      >
-        Adicionar
-      </BtnAdicionar>
+      <FigureImg>
+        <ImgStyle src={productsData.img} alt={productsData.name} />
+      </FigureImg>
+      <SpanPrecoECategoriaEnome>
+        <NomeProduto>{productsData.name} </NomeProduto>
+        <CategoriaProduto>{productsData.category} </CategoriaProduto>
+        <Precoproduto>R$ {Number(productsData.price)}</Precoproduto>
+        <BtnAdicionar
+          type="submit"
+          onClick={() => addItem(productsData)}
+          className="Adicionar "
+        >
+          Adicionar
+        </BtnAdicionar>
+      </SpanPrecoECategoriaEnome>
     </ConteinerProducts>
   );
 }

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+// import GlobalStyle from "../globalStyle";
 
 import Aside from "./componentes/aside";
 import Header from "./componentes/Header";
@@ -78,6 +79,7 @@ function App() {
         productsData={products}
         recipeValue={recipeValue}
       />
+
       <StyledDivOne>
         <RecipeCard
           addItem={addItem}
@@ -94,6 +96,7 @@ function App() {
           removeItem={() => removeItem(lancheFavorito)}
         />
       </StyledDivOne>
+
       <ToastContainer
         position="bottom-left"
         autoClose={2000}

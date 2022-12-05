@@ -1,16 +1,8 @@
 import styled from "styled-components";
-// @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap");
-// :root {
-//   --font-inter: "Inter", sans serif;
-//   --color-black: #333333;
-//   --color-rose: #eb5757;
-//   --color-bk: #f5f5f5;
-//   --color-white: #ffffff;
-//   --color-gren: rgba(39, 174, 96, 1);
-//   --color-grey: #828282;
-//   --colorText-Carrinho: rgba(51, 51, 51, 1);
-// }
 
+export const FigureImg = styled.figure`
+  background: #f5f5f5;
+`;
 export const ImgStyle = styled.img`
   object-fit: cover;
   width: 12rem;
@@ -18,13 +10,27 @@ export const ImgStyle = styled.img`
   background: #f5f5f5;
 `;
 export const ConteinerProducts = styled.li`
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
   justify-content: center;
   height: 21rem;
   width: 250px;
   object-fit: cover;
+
+  border: solid 0.5px darkgrey;
+
   box-shadow: 0px 4px 32px 0px rgb(0 1 0 / 7%);
 `;
 export const NomeProduto = styled.p`
@@ -36,7 +42,19 @@ export const NomeProduto = styled.p`
   text-align: left;
   color: #333333;
 `;
-
+export const SpanPrecoECategoriaEnome = styled.span`
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  justify-items: flex-start;
+  gap: 1rem;
+  width: 14rem;
+  margin-top: 3rem;
+`;
 export const CategoriaProduto = styled.p`
   font-family: "Inter", sans serif;
   font-size: 12px;
@@ -52,7 +70,7 @@ export const Precoproduto = styled.p`
   color: rgba(39, 174, 96, 1);
 `;
 export const BtnAdicionar = styled.button`
-  height: 40px;
+  height: 29px;
   width: 128px;
   left: 20px;
   top: 133px;
