@@ -14,7 +14,7 @@ export const StyledHeaders = styled.header`
   display: flex;
   align-items: center;
   padding: 1rem;
-  gap: 57%;
+  gap: 55%;
   width: 100vw;
   height: 5rem;
   background-color: #f5f5f5;
@@ -35,8 +35,8 @@ export const SpanEbtn = styled.span`
 `;
 export const InputPesquisa = styled.input`
   height: 50px;
-  width: 270px;
-  border-radius: 8px;
+  width: 323px;
+  border-radius: 9px;
   border: none;
 `;
 export const BtnPesquisa = styled.button`

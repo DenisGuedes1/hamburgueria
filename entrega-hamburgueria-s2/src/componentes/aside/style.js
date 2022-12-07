@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const StyleAside = styled.aside`
-  width: 25%;
+  width: 24%;
   height: 45%;
-  margin: 1% 0% 33% 70%;
+  margin: 1% 0% 33% 73%;
   background-color: #f5f5f5;
   overflow-x: scroll;
   position: absolute;
