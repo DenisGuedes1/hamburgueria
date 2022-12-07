@@ -14,7 +14,7 @@ export const StyledHeaders = styled.header`
   display: flex;
   align-items: center;
   padding: 1rem;
-  gap: 60%;
+  gap: 57%;
   width: 100vw;
   height: 5rem;
   background-color: #f5f5f5;
@@ -22,6 +22,7 @@ export const StyledHeaders = styled.header`
 export const TitutloHearder = styled.h1`
   color: #333333;
   width: 15%;
+  margin: 0rem 0rem 0rem 3rem;
 `;
 export const TituloCorRosa = styled.span`
   color: #eb5757;
